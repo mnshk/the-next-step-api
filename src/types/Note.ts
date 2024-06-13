@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb"
 export type NoteStatus = "NEW" | "PENDING" | "OVERDUE" | "DONE" | "ABANDONED"
 export type NoteInstanceStatus = "PENDING" | "DONE" | "ABANDONED"
 
-export type Note = {
+export type INote = {
 	_id: ObjectId
 	title: string
 	description: string
