@@ -4,6 +4,7 @@ import express from "express"
 import { notesRouter } from "./routes/notes"
 import dbConnect from "./services/dbConnect"
 import User from "./models/User"
+import "./cron"
 
 configDotenv()
 dbConnect()

@@ -1,7 +1,6 @@
 import { ObjectId } from "mongodb"
 
 export type NoteStatus = "NEW" | "PENDING" | "OVERDUE" | "DONE" | "ABANDONED"
-export type NoteInstanceStatus = "PENDING" | "DONE" | "ABANDONED"
 
 export type INote = {
 	_id: ObjectId
@@ -10,7 +9,7 @@ export type INote = {
 	status: NoteStatus
 	startsAt: string
 	endsAt: string
-	instanceStatus: NoteInstanceStatus
+	instanceStatus: NoteStatus
 	timeBlock: {
 		starts: string
 		ends: string
