@@ -56,16 +56,15 @@ async function sendNotification(note: INote, body: string) {
 	)
 }
 
-cron.schedule("*/5 * * * * *", async () => {
-	console.log("---------CRON JOB------")
+cron.schedule("* * * * *", async () => {
+	console.log("----CRON-JOB----")
 	const notes = await Note.find({})
-
 	notes.forEach(async note => {
 		// Reset Instance Status
-		// if (moment(moment.now()).isSame(moment("00:00", "HH:mm"))) {
-		// 	note.instanceStatus = "NEW"
-		// 	note.save()
-		// }
+		if (moment(moment.now()).isSame(moment("00:00", "HH:mm"))) {
+			note.instanceStatus = "NEW"
+			note.save()
+		}
 
 		if (doesNoteHaveTimeBlock(note)) {
 			if (note.instanceStatus === "NEW" && hasNoteStarted(note)) {
